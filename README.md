@@ -6,7 +6,7 @@
 - Homepage URL: https://vesta.uclan.ac.uk/~gconstantinou/WebTec/index.php
 - Dummy account email: [dummy@gmail.com]
 - Dummy account password: [Dummy123!]
-- GitHub repository: Not used
+- GitHub repository: (https://github.com/GeorgeConstantinou23/web-technologies-)
 
 ## Project Overview
 This project is a server-side PHP and MySQL storefront for the UClan Web Page assignment. The site displays products and offers from the database, allows users to register and log in, supports product reviews, stores cart items in a browser cookie, and creates order records during checkout.
