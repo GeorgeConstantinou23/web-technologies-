@@ -1,0 +1,6 @@
+# Shows the custom page when a missing URL returns 404
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule \.php$ 404.php [L]
+ErrorDocument 404 /~gconstantinou/WebTec/404.php
