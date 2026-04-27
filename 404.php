@@ -7,6 +7,7 @@ $db = null;
 require_once __DIR__ . '/includes/bootstrap.php';
 
 $pageTitle = 'Page Not Found | ' . SITE_NAME;
+$hideNavigation = true;
 
 require __DIR__ . '/includes/header.php';
 
