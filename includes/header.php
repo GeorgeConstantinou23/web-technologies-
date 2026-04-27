@@ -9,6 +9,7 @@ if (!empty($pageTitle)) {
 }
 
 $currentPage = basename($_SERVER["PHP_SELF"]);
+$hideNavigation = !empty($hideNavigation);
 
 $welcomeName = current_user_name();
 $homeClass = "";
@@ -48,23 +49,25 @@ echo "<h2>" . e(SITE_NAME) . "</h2>";
 echo "<div>";
 echo "<img class='logo' src='images/logo_reverse.png' alt='Uclan Logo'>";
 echo "</div>";
-echo "<nav>";
-echo "<button class='hamburger' aria-label='Toggle navigation'>&#9776;</button>";
-echo "<ul class='main-nav'>";
-echo "<li><a class='" . $homeClass . "' href='index.php'>Home</a></li>";
-echo "<li><a class='" . $productsClass . "' href='products.php'>Products</a></li>";
-echo "<li><a class='" . $cartClass . "' href='cart.php'>Cart</a></li>";
+if (!$hideNavigation) {
+    echo "<nav>";
+    echo "<button class='hamburger' aria-label='Toggle navigation'>&#9776;</button>";
+    echo "<ul class='main-nav'>";
+    echo "<li><a class='" . $homeClass . "' href='index.php'>Home</a></li>";
+    echo "<li><a class='" . $productsClass . "' href='products.php'>Products</a></li>";
+    echo "<li><a class='" . $cartClass . "' href='cart.php'>Cart</a></li>";
 
-if (is_logged_in()) {
-    echo "<li><a href='logout.php'>Logout</a></li>";
-} else {
-    echo "<li><a class='" . $loginClass . "' href='login.php'>Login</a></li>";
+    if (is_logged_in()) {
+        echo "<li><a href='logout.php'>Logout</a></li>";
+    } else {
+        echo "<li><a class='" . $loginClass . "' href='login.php'>Login</a></li>";
+    }
+
+    echo "</ul>";
+    echo "</nav>";
 }
 
-echo "</ul>";
-echo "</nav>";
-
-if ($welcomeName !== "") {
+if (!$hideNavigation && $welcomeName !== "") {
     echo "<p class='welcome-banner'>Welcome back, " . e($welcomeName) . ".</p>";
 }
 
